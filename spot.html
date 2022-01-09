@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.4-web/css/all.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap {
+            width: 600px;
+            position: absolute;
+            top: 200px;
+            left: calc(50% - 300px - 350px);
+        }
+        .wrap1 {
+            width: 600px;
+            position: absolute;
+            top: 200px;
+            left: calc(50% - 300px + 350px);
+            cursor: pointer;
+        }
+        
+        img{
+            width: 100%;
+            height: auto;
+            background-size: cover;
+        }
+        .spot1 {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid red;
+            left: 190px;
+            top: 50px;
+        }
+        .spot2 {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid red;
+            left: 385px;
+            top: 80px;
+        }
+        .spot3 {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid red;
+            left: 500px;
+            top: 85px;
+        }
+        .spot4 {
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid red;
+            left: 80px;
+            top: 110px;
+        }
+        .spot5 {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            z-index: 999;
+            border: 1px solid red;
+            left: 175px;
+            top: 210px;
+        }
+        .fas.fa-times {
+            font-size: 50px;
+            position: absolute;
+            z-index: 999;
+            color: red;
+        }
+        .far.fa-circle {
+            font-size: 50px;
+            position: absolute;
+            z-index: 999;
+            color: green;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        
+        <img src="/zebra.jpg">
+    </div>
+    <div class="wrap1">
+        <div class="spot1"></div>
+        <div class="spot2"></div>
+        <div class="spot3"></div>
+        <div class="spot4"></div>
+        <div class="spot5"></div>
+        <img src="/zebra_final.jpg" id="img">
+    </div>
+
+
+<script>
+    const img = document.querySelector('#img');
+    const spot1 = document.querySelector('.spot1');
+    const spot2 = document.querySelector('.spot2');
+    const spot3 = document.querySelector('.spot3');
+    const spot4 = document.querySelector('.spot4');
+    const spot5 = document.querySelector('.spot5');
+    const wrap = document.querySelector('.wrap');
+    const wrap1 = document.querySelector('.wrap1');
+    let count = 0 ;
+    let count1 = 0 , count2=0 , count3=0 , count4=0 , count5=0;
+    let success = 0;
+    wrap1.addEventListener('click',function(event){
+        const spot = document.createElement('i');
+        switch(event.target){
+            
+            case img:
+                spot.className = `fas fa-times`;
+                spot.style.left = `${event.offsetX-15}px`;
+                spot.style.top = `${event.offsetY-15}px`;
+                wrap.append(spot);
+                count++;
+                break;
+            case spot1:  
+                spot.className = `far fa-circle`;
+                spot.style.left = `190px`;
+                spot.style.top = `50px`;
+                wrap.append(spot);
+                count1++;
+                if(count1==1){
+                    success++;
+                }
+                // spot1.style.cursor = 'default';
+                break;
+            case spot2:
+                spot.className = `far fa-circle`;
+                spot.style.left = `385px`;
+                spot.style.top = `80px`;
+                wrap.append(spot);
+                count2++;
+                if(count2==1){
+                    success++;
+                }
+                break;
+            case spot3:
+                spot.className = `far fa-circle`;
+                spot.style.left = `500px`;
+                spot.style.top = `85px`;
+                wrap.append(spot);
+                count3++;
+                if(count3==1){
+                    success++;
+                }
+                break;
+            case spot4:
+                spot.className = `far fa-circle`;
+                spot.style.left = `80px`;
+                spot.style.top = `110px`;
+                wrap.append(spot);
+                count4++;
+                if(count4==1){
+                    success++;
+                }
+                break;
+            case spot5:
+                spot.className = `far fa-circle`;
+                spot.style.left = `175px`;
+                spot.style.top = `210px`;
+                wrap.append(spot);
+                count5++;
+                if(count5==1){
+                    success++;
+                }
+                break;
+        }
+        console.log(success);
+        if(count==3){
+            spot1.style.border = `3px solid red`;
+            spot2.style.border = `3px solid red`;
+            spot3.style.border = `3px solid red`;
+            spot4.style.border = `3px solid red`;
+            spot5.style.border = `3px solid red`;
+            alert('很可惜,你輸囉');
+            location.href=`spot.html`;
+        }
+        if(success==5){
+            alert('好厲害，眼睛很好哦');
+            location.href=`spot.html`;
+        }
+    })
+    
+</script>
+</body>
+</html>
